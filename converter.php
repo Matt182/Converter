@@ -7,7 +7,6 @@ use Symfony\Component\Yaml\Dumper;
 use LSS\XML2Array;
 use LSS\Array2XML;
 
-
 function converter($in, $out)
 {
   $extension = explode('.', $in)[1];
