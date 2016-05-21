@@ -8,6 +8,7 @@
     ],
     "require": {
         "symfony/yaml": "^3.0",
-        "openlss/lib-array2xml": "^0.0.10"
+        "openlss/lib-array2xml": "^0.0.10",
+        "squizlabs/php_codesniffer": "*"
     }
 }

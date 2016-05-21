@@ -1,3 +1,4 @@
 language: php
 php:
   - '5.6'
+script: vendor/bin/phpcs converter.php
