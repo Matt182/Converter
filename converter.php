@@ -1,4 +1,8 @@
 <?php
+/**
+ * Convert between json, xml, yml files
+ *
+ */
 namespace Converter;
 
 require_once 'vendor/autoload.php';
