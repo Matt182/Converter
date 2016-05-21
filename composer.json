@@ -1,0 +1,13 @@
+{
+    "name": "matt/parse-f",
+    "authors": [
+        {
+            "name": "matt182",
+            "email": "mattspring0@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/yaml": "^3.0",
+        "openlss/lib-array2xml": "^0.0.10"
+    }
+}
