@@ -8,5 +8,6 @@ install:
 
 script:
   - make
+  - make autoload
   - make lint
   - make test
