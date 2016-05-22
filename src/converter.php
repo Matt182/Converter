@@ -1,13 +1,11 @@
 <?php
 /**
- * Convert between json and yml files
+ * Convert between json, ini, yml files
  *
  */
 namespace Converter;
 
 require_once 'vendor/autoload.php';
-use Symfony\Component\Yaml\Parser;
-use Symfony\Component\Yaml\Dumper;
 
 function converter($in, $out)
 {
@@ -15,11 +13,13 @@ function converter($in, $out)
     switch ($extension) {
     case 'json':
             $parsed = json\decode(file_get_contents($in));
-            print_r($parsed);
         break;
     case 'yml':
             $parsed = yml\decode(file_get_contents($in));
         break;
+    case 'ini':
+            $parsed = ini\decode(file_get_contents($in));
+      break;
     default:
         echo "unacceptable file format";
         exit();
@@ -33,6 +33,9 @@ function converter($in, $out)
         break;
     case 'yml':
             file_put_contents($out, yml\encode($parsed));
+        break;
+    case 'ini':
+            file_put_contents($out, ini\encode($parsed));
         break;
     default:
         echo "unacceptable file format";

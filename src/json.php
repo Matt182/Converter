@@ -3,7 +3,7 @@ namespace Converter\json;
 
 function encode($array)
 {
-    return json_encode($array);
+    return json_encode($array, JSON_UNESCAPED_SLASHES);
 }
 
 function decode($json)

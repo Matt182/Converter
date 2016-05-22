@@ -11,4 +11,5 @@ return array(
     '93aa591bc4ca510c520999e34229ee79' => $vendorDir . '/sabre/xml/lib/Serializer/functions.php',
     'ce7942d43061f3cb3340bf64d34d2c2a' => $baseDir . '/src/json.php',
     '419a2e7d63fc34b0f292bfe32bc1ebd2' => $baseDir . '/src/yml.php',
+    'a93c7c9e4abf0c450c12c84ceb6a74e8' => $baseDir . '/src/ini.php',
 );
