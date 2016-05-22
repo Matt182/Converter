@@ -5,4 +5,7 @@ install:
   - composer self-update
   - make install
 
-script: make
+script:
+  - make
+  - make lint
+  - make test
