@@ -1,13 +1,9 @@
 language: php
 php:
   - '5.6'
+
 install:
   - composer self-update
   - make install
-  - composer update
 
-script:
-  - make
-  - make autoload
-  - make lint
-  - make test
+script: make lint

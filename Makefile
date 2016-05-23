@@ -5,7 +5,7 @@ autoload:
 	composer dump-autoload
 
 test:
-	composer exec phpunit --bootstrap tests
+	composer exec phpunit ${ARGS}
 
 lint:
-	composer exec phpcs src tests
+	composer exec 'phpcs --standard=PSR2 src tests'

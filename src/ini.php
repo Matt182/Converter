@@ -4,7 +4,6 @@ namespace Converter\ini;
 use Piwik\Ini\IniReader;
 use Piwik\Ini\IniWriter;
 
-
 function encode($array)
 {
     $writer = new IniWriter();

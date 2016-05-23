@@ -12,4 +12,5 @@ return array(
     'ce7942d43061f3cb3340bf64d34d2c2a' => $baseDir . '/src/json.php',
     '419a2e7d63fc34b0f292bfe32bc1ebd2' => $baseDir . '/src/yml.php',
     'a93c7c9e4abf0c450c12c84ceb6a74e8' => $baseDir . '/src/ini.php',
+    'e20d8e969b8d932e820e96119e1fd948' => $baseDir . '/src/converter.php',
 );
