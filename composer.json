@@ -1,6 +1,6 @@
 {
     "name": "matt/parse-f",
-    "bin": ["convert", "vendor/bin/phpcs"],
+    "bin": ["convert"],
     "authors": [
         {
             "name": "matt182",

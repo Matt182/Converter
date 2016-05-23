@@ -5,8 +5,6 @@
  */
 namespace Converter;
 
-//require_once 'vendor/autoload.php';
-
 function converter($in, $out)
 {
     preg_match('/\.\w+$/i', $in, $matches);
@@ -50,4 +48,3 @@ function arrayToFormat($array, $extension)
             break;
     }
 }
-//converter($argv[1], $argv[2]);
