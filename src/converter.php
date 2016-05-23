@@ -1,6 +1,6 @@
 <?php
 /**
- * Convert between json, ini, yml files
+ * Convert between json, yml files
  *
  */
 namespace Converter;
