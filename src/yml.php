@@ -32,8 +32,8 @@ function encode($array)
  */
 function decode($yml)
 {
+    $parser = new Parser();
     try {
-        $parser = new Parser();
         $res = $parser->parse($yml);
         return $res;
     } catch (ParseException $e) {
