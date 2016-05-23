@@ -38,7 +38,7 @@ function formatToArray($content, $extension)
         break;
         default:
             echo "unacceptable input file format: $extension";
-            exit();
+            exit(1);
         break;
     }
 }
@@ -62,7 +62,7 @@ function arrayToFormat($array, $extension)
         break;
         default:
             echo "unacceptable output file format: $extension";
-            exit();
+            exit(1);
         break;
     }
 }
