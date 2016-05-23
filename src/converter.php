@@ -9,36 +9,43 @@ namespace Converter;
 
 function converter($in, $out)
 {
-    $extension = explode('.', $in)[1];
+    preg_match('/\.\w+$/i', $in, $matches);
+    $extension = $matches[0];
+    $parsed = formatToArray(file_get_contents($in), $extension);
+
+    preg_match('/\.\w+$/i', $out, $matches);
+    $extension = $matches[0];
+    file_put_contents($out, arrayToFormat($parsed, $extension));
+}
+
+function formatToArray($content, $extension)
+{
     switch ($extension) {
-        case 'json':
-            $parsed = json\decode(file_get_contents($in));
+        case '.json':
+            return json\decode($content);
             break;
-        case 'yml':
-            $parsed = yml\decode(file_get_contents($in));
-            break;
-        case 'ini':
-            $parsed = ini\decode(file_get_contents($in));
+        case '.yml':
+            return yml\decode($content);
             break;
         default:
-            echo "unacceptable file format";
+            echo "unacceptable input file format: $extension";
             exit();
             break;
     }
+}
 
-    $extension = explode('.', $out)[1];
+function arrayToFormat($array, $extension)
+{
     switch ($extension) {
-        case 'json':
-            file_put_contents($out, json\encode($parsed));
+        case '.json':
+            print_r($array);
+            return json\encode($array);
             break;
-        case 'yml':
-            file_put_contents($out, yml\encode($parsed));
-            break;
-        case 'ini':
-            file_put_contents($out, ini\encode($parsed));
+        case '.yml':
+            return yml\encode($array);
             break;
         default:
-            echo "unacceptable file format";
+            echo "unacceptable output file format: $extension";
             exit();
             break;
     }

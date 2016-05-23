@@ -1,0 +1,25 @@
+#!/usr/bin/env php
+<?php
+/**
+ * A cli tool that helps convert json and yaml beetween each other
+ */
+require('./vendor/autoload.php');
+use function Converter\converter;
+if(count($argv) !== 3) {
+    $errorMessage = 'Error!';
+    if(count($argv) == 2) {
+        $errorMessage .= ' Not enouth arguments.';
+    } elseif(count($argv) > 3) {
+        $errorMessage .= ' Too many arguments.';
+    }
+    echo $errorMessage . PHP_EOL;
+    printUsage();
+    exit();
+}
+function printUsage()
+{
+    echo 'Usage example:' . PHP_EOL;
+    echo '      convert from.yml to.json' . PHP_EOL;
+}
+converter($argv[1], $argv[2]);
+exit();

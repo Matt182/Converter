@@ -10,7 +10,6 @@
         "symfony/yaml": "^3.0",
         "squizlabs/php_codesniffer": "*",
         "phpunit/phpunit": "5.3.*",
-        "piwik/ini": "^1.0",
         "php": ">=5.6"
     },
 
@@ -18,7 +17,6 @@
            "files": [
                "src/json.php",
                "src/yml.php",
-               "src/ini.php",
                "src/converter.php"
            ]
    }

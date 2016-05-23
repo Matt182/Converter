@@ -7,9 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
-    'Sabre\\Xml\\' => array($vendorDir . '/sabre/xml/lib'),
-    'Sabre\\Uri\\' => array($vendorDir . '/sabre/uri/lib'),
-    'Piwik\\Ini\\' => array($vendorDir . '/piwik/ini/src'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
 );

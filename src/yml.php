@@ -7,7 +7,7 @@ use Symfony\Component\Yaml\Dumper;
 function encode($array)
 {
     $dumper = new Dumper();
-    return $dumper->dump($array);
+    return $dumper->dump($array, 3);
 }
 
 function decode($yml)
