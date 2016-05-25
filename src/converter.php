@@ -13,7 +13,6 @@ function converter($in, $out)
 {
     $extension = pathinfo($in, PATHINFO_EXTENSION);
     $parsed = formatToArray(file_get_contents($in), $extension);
-    preg_match('/\.\w+$/i', $out, $matches);
     $extension = pathinfo($out, PATHINFO_EXTENSION);
     file_put_contents($out, arrayToFormat($parsed, $extension));
 }
@@ -27,10 +26,7 @@ function converter($in, $out)
  * @return array
  */
 function formatToArray($content, $extension)
-{/*
-    $func = "$extension\\decode";
-    function_exists($func) ? $func($content) : die("unacceptable input file format: $extension");
-    */
+{
     switch ($extension) {
         case 'json':
             return json\decode($content);
