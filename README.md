@@ -14,7 +14,7 @@ composer update # update dependences
 ```
 
 ## Usage example
-`convert from.json to.yml`
+`./convert -i from.json -o to.yml`
 
 ## Requirments
 - PHP 5.6+
