@@ -1,10 +1,6 @@
 <?php
 namespace Converter\tests;
 
-//require_once '/vendor/autoload.php';
-/**
- *
- */
 class EncodeTest extends \PHPUnit_Framework_TestCase
 {
     private $array = array('foo' => 'bar',

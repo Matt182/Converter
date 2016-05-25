@@ -11,29 +11,31 @@ namespace Converter;
  */
 function converter($in, $out)
 {
-    preg_match('/\.\w+$/i', $in, $matches);
-    $extension = $matches[0];
+    $extension = pathinfo($in, PATHINFO_EXTENSION);
     $parsed = formatToArray(file_get_contents($in), $extension);
     preg_match('/\.\w+$/i', $out, $matches);
-    $extension = $matches[0];
+    $extension = pathinfo($out, PATHINFO_EXTENSION);
     file_put_contents($out, arrayToFormat($parsed, $extension));
 }
 
 /**
  * Convert string of $extension format to array
  *
- * @param string $content   string of $extension
+ * @param string $content   string of $extension format
  * @param string $extension extension of input
  *
  * @return array
  */
 function formatToArray($content, $extension)
-{
+{/*
+    $func = "$extension\\decode";
+    function_exists($func) ? $func($content) : die("unacceptable input file format: $extension");
+    */
     switch ($extension) {
-        case '.json':
+        case 'json':
             return json\decode($content);
         break;
-        case '.yml':
+        case 'yml':
             return yml\decode($content);
         break;
         default:
@@ -54,10 +56,10 @@ function formatToArray($content, $extension)
 function arrayToFormat($array, $extension)
 {
     switch ($extension) {
-        case '.json':
+        case 'json':
             return json\encode($array);
         break;
-        case '.yml':
+        case 'yml':
             return yml\encode($array);
         break;
         default:
