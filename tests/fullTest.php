@@ -3,11 +3,11 @@ namespace Converter\tests;
 
 class FullTest extends \PHPUnit_Framework_TestCase
 {
-    private $prepJson = __DIR__ . '\prepared.json';
-    private $prepYaml = __DIR__ . '\prepared.yml';
+    private $prepJson = __DIR__ . '/prepared.json';
+    private $prepYaml = __DIR__ . '/prepared.yml';
 
-    private $testJson = __DIR__ . '\tested.json';
-    private $testYaml = __DIR__ . '\tested.yml';
+    private $testJson = __DIR__ . '/tested.json';
+    private $testYaml = __DIR__ . '/tested.yml';
 
 
     public function testJsonToYaml()
