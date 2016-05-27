@@ -7,15 +7,9 @@ A converter for config-related text formats. Supported formats:
 - json
 - yaml
 
-## Install
-```
-git clone https://github.com/Matt182/Converter # pull the repo
-cd Converter # go to project folder
-composer update # update dependences
-```
 
 ## Usage example
-`./convert -i from.json -o to.yml`
+`convert -i from.json -o to.yml`
 
 ## Requirments
 - PHP 5.6+
