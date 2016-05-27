@@ -7,12 +7,4 @@ install:
   - make install
 
 script:
-    - make lint
-    - mkdir -p build/logs
-    - phpunit --coverage-clover build/logs/clover.xml
-
-after-script:
-    - php vendor/bin/coveralls -v
-addons:
-    code_climate:
-        repo_token: 560fe4d61730886dd809ef3d3febb57af84835e708e30dae83b020ab3dc9dc27
+    - make lint test
