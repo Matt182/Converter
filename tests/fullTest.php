@@ -9,6 +9,8 @@ class FullTest extends \PHPUnit_Framework_TestCase
     private $testJson = __DIR__ . '/tested.json';
     private $testYaml = __DIR__ . '/tested.yml';
 
+    private $wrongFormat = __DIR__ . '/wrong.format';
+
 
     public function testJsonToYaml()
     {
@@ -22,5 +24,13 @@ class FullTest extends \PHPUnit_Framework_TestCase
         \Converter\converter($this->prepYaml, $this->testJson);
         $this->assertEquals(file_get_contents($this->prepJson), file_get_contents($this->testJson));
         unlink($this->testJson);
+    }
+
+    public function testWrongFormats()
+    {
+        $this->assertFalse(\Converter\converter($this->prepJson, $this->wrongFormat));
+        $this->assertFalse(\Converter\converter($this->wrongFormat, $this->wrongFormat));
+
+
     }
 }

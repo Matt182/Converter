@@ -14,13 +14,8 @@ use Symfony\Component\Yaml\Dumper;
 function encode($array)
 {
     $dumper = new Dumper();
-    try {
-        $res = $dumper->dump($array, 3);
-        return $res;
-    } catch (DumpException $e) {
-        printf("Unable to parse array into YAML string: %s", $e->getMessage());
-        exit(1);
-    }
+    $res = $dumper->dump($array, 3);
+    return $res;
 }
 
 /**
@@ -33,11 +28,6 @@ function encode($array)
 function decode($yml)
 {
     $parser = new Parser();
-    try {
-        $res = $parser->parse($yml);
-        return $res;
-    } catch (ParseException $e) {
-        printf("Unable to parse the YAML string: %s", $e->getMessage());
-        exit(1);
-    }
+    $res = $parser->parse($yml);
+    return $res;
 }

@@ -12,9 +12,17 @@ namespace Converter;
 function converter($in, $out)
 {
     $extension = pathinfo($in, PATHINFO_EXTENSION);
-    $parsed = formatToArray(file_get_contents($in), $extension);
+    $decoded = formatToArray(file_get_contents($in), $extension);
+    if (!$decoded) {
+        return false;
+    }
     $extension = pathinfo($out, PATHINFO_EXTENSION);
-    file_put_contents($out, arrayToFormat($parsed, $extension));
+    $encoded = arrayToFormat($decoded, $extension);
+    if (!$encoded) {
+        return false;
+    }
+    file_put_contents($out, $encoded);
+    return true;
 }
 
 /**
@@ -36,7 +44,7 @@ function formatToArray($content, $extension)
         break;
         default:
             echo "unacceptable input file format: $extension";
-            exit(1);
+            return false;
         break;
     }
 }
@@ -60,7 +68,7 @@ function arrayToFormat($array, $extension)
         break;
         default:
             echo "unacceptable output file format: $extension";
-            exit(1);
+            return false;
         break;
     }
 }
