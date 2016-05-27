@@ -6,4 +6,10 @@ install:
   - composer self-update
   - make install
 
-script: make lint
+script:
+    - make lint
+    - mkdir -p build/logs
+    - phpunit --coverage-clover build/logs/clover.xml
+
+after-script:
+    - php vendor/bin/coveralls -v
