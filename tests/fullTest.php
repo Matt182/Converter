@@ -5,15 +5,15 @@ class FullTest extends \PHPUnit_Framework_TestCase
 {
     public function testJsonToYaml()
     {
-        \Converter\converter('tests\prepared.json', 'tests\tested.yml');
-        $this->assertEquals(file_get_contents('tests\prepared.yml'), file_get_contents('tests\tested.yml'));
-        unlink('tests\tested.yml');
+        \Converter\converter(__DIR__ . 'tests\prepared.json', __DIR__ . 'tests\tested.yml');
+        $this->assertEquals(file_get_contents(__DIR__ . 'tests\prepared.yml'), file_get_contents(__DIR__ . 'tests\tested.yml'));
+        unlink(__DIR__ . 'tests\tested.yml');
     }
 
     public function testYamlToJson()
     {
-        \Converter\converter('tests\prepared.yml', 'tests\tested.json');
-        $this->assertEquals(file_get_contents('tests\prepared.json'), file_get_contents('tests\tested.json'));
-        unlink('tests\tested.json');
+        \Converter\converter(__DIR__ . 'tests\prepared.yml', __DIR__ . 'tests\tested.json');
+        $this->assertEquals(file_get_contents(__DIR__ . 'tests\prepared.json'), file_get_contents(__DIR__ . 'tests\tested.json'));
+        unlink(__DIR__ . 'tests\tested.json');
     }
 }
