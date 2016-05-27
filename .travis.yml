@@ -8,6 +8,3 @@ install:
 
 script:
     - make lint test
-addons:
-    code_climate:
-        repo_token: 2f461a6dcec99122a0c0e4db8f55f7410b376848
