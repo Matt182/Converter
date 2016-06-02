@@ -1,6 +1,12 @@
 <?php
 namespace Converter\codecs;
 
+/**
+ * Return array of acceptable encoders
+ *
+ * @param     void
+ * @return    array
+ */
 function getEncoders()
 {
     return [
@@ -9,6 +15,12 @@ function getEncoders()
     ];
 }
 
+/**
+ * Return array of acceptable decoders
+ *
+ * @param     void
+ * @return    array
+ */
 function getDecoders()
 {
     return [

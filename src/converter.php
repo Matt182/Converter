@@ -7,8 +7,6 @@ use function Converter\file\getExtension;
 use function Converter\codecs\getEncoders;
 use function Converter\codecs\getDecoders;
 
-
-
 /**
  * Does converting job
  *
