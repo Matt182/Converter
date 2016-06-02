@@ -1,6 +1,14 @@
 <?php
 namespace Converter;
 
+use function Converter\file\write;
+use function Converter\file\read;
+use function Converter\file\getExtension;
+use function Converter\codecs\getEncoders;
+use function Converter\codecs\getDecoders;
+
+
+
 /**
  * Does converting job
  *
@@ -9,19 +17,17 @@ namespace Converter;
  *
  * @return void
  */
-function converter($in, $out)
+function converter($in, $out, $customDecoder = null, $customEncoder = null)
 {
-    $extension = pathinfo($in, PATHINFO_EXTENSION);
-    $decoded = formatToArray(file_get_contents($in), $extension);
+    $decoded = formatToArray(read($in), getExtension($in), $customDecoder);
     if (!$decoded) {
         return false;
     }
-    $extension = pathinfo($out, PATHINFO_EXTENSION);
-    $encoded = arrayToFormat($decoded, $extension);
+    $encoded = arrayToFormat($decoded, getExtension($out), $customEncoder);
     if (!$encoded) {
         return false;
     }
-    file_put_contents($out, $encoded);
+    write($encoded, $out);
     return true;
 }
 
@@ -33,8 +39,22 @@ function converter($in, $out)
  *
  * @return array
  */
-function formatToArray($content, $extension)
+function formatToArray($content, $extension, $customDecoder)
 {
+    if ($customDecoder != null) {
+        return $customDecoder($content);
+    } else {
+        $decoders = getDecoders();
+
+        if (key_exists($extension, $decoders)) {
+            return $decoders[$extension]($content);
+        } else {
+            echo "unacceptable input file format: $extension";
+            return false;
+        }
+    }
+
+    /*
     switch ($extension) {
         case 'json':
             return json\decode($content);
@@ -47,6 +67,7 @@ function formatToArray($content, $extension)
             return false;
         break;
     }
+    */
 }
 
 /**
@@ -57,8 +78,22 @@ function formatToArray($content, $extension)
  *
  * @return string
  */
-function arrayToFormat($array, $extension)
+function arrayToFormat($array, $extension, $customEncoder)
 {
+    if ($customEncoder != null) {
+        return $customEncoder($array);
+    } else {
+        $encoders = getEncoders();
+
+        if (key_exists($extension, $encoders)) {
+            return $encoders[$extension]($array);
+        } else {
+            echo "unacceptable output file format: $extension";
+            return false;
+        }
+    }
+
+    /*
     switch ($extension) {
         case 'json':
             return json\encode($array);
@@ -71,4 +106,5 @@ function arrayToFormat($array, $extension)
             return false;
         break;
     }
+    */
 }

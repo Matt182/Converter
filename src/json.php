@@ -6,7 +6,7 @@ namespace Converter\json;
  *
  * @param array $array array
  *
- * @return void
+ * @return string
  */
 function encode($array)
 {
@@ -19,7 +19,7 @@ function encode($array)
  *
  * @param string $json json string
  *
- * @return void
+ * @return array
  */
 function decode($json)
 {

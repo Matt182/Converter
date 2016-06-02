@@ -9,7 +9,7 @@ use Symfony\Component\Yaml\Dumper;
  *
  * @param array $array array
  *
- * @return void
+ * @return string
  */
 function encode($array)
 {
@@ -23,7 +23,7 @@ function encode($array)
  *
  * @param string $yml yaml string
  *
- * @return void
+ * @return array
  */
 function decode($yml)
 {

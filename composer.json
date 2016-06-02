@@ -22,7 +22,9 @@
            "files": [
                "src/json.php",
                "src/yml.php",
-               "src/converter.php"
+               "src/converter.php",
+               "src/fileHandlers.php",
+               "src/codecs.php"
            ]
    }
 }
